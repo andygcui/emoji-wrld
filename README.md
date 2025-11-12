@@ -1,5 +1,7 @@
 ## Emoji World
-2D world game for video game programming (MBHS)
+2d world game for video game programming (MBHS)
+
+sample gameplay: https://www.youtube.com/watch?v=-YiuDrHBZPs&feature=youtu.be 
 
 <img width="500" height="700" alt="rodeo copy 3" src="https://github.com/user-attachments/assets/3f5c95a0-64aa-43e9-8fe7-f0e00acb7fe4" />
 <img width="200" height="300" alt="poo_side_idle 8 37 15 AM" src="https://github.com/user-attachments/assets/f200d4d0-fe0e-4d09-adb9-d0384eae292e" />
