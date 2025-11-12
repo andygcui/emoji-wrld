@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://kon2irknhhrq"
+path="res://.godot/imported/onlymp3.to - Playboi Carti MEH Official Video -nMDOSLEVdBw-192k-1698411498.mp3-271ea9f0cdd07ca2f3cc92ff61ff51e1.mp3str"
+
+[deps]
+
+source_file="res://art/onlymp3.to - Playboi Carti MEH Official Video -nMDOSLEVdBw-192k-1698411498.mp3"
+dest_files=["res://.godot/imported/onlymp3.to - Playboi Carti MEH Official Video -nMDOSLEVdBw-192k-1698411498.mp3-271ea9f0cdd07ca2f3cc92ff61ff51e1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
