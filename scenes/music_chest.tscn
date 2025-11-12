@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://dkcs0wqquhgxg"]
+
+[ext_resource type="Script" path="res://music_chest.gd" id="1_g2vuv"]
+[ext_resource type="Texture2D" uid="uid://rrfar6n64vh1" path="res://art/sprites/objects/chest_01.png" id="2_wotr2"]
+[ext_resource type="AudioStream" uid="uid://kon2irknhhrq" path="res://art/onlymp3.to - Playboi Carti MEH Official Video -nMDOSLEVdBw-192k-1698411498.mp3" id="3_vsr8e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxorn"]
+atlas = ExtResource("2_wotr2")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ojir"]
+atlas = ExtResource("2_wotr2")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqu2w"]
+atlas = ExtResource("2_wotr2")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddywf"]
+atlas = ExtResource("2_wotr2")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rk4vu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pxorn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ojir")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vqu2w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ddywf")
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kfha1"]
+size = Vector2(24.5625, 23.1875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_adc3a"]
+size = Vector2(21, 8.75)
+
+[node name="music_chest" type="StaticBody2D"]
+y_sort_enabled = true
+script = ExtResource("1_g2vuv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(6, -4)
+scale = Vector2(1.65, 1.65)
+sprite_frames = SubResource("SpriteFrames_rk4vu")
+animation = &"open"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6, -4)
+shape = SubResource("RectangleShape2D_kfha1")
+
+[node name="chest_hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chest_hitbox"]
+position = Vector2(6.5, 1.625)
+shape = SubResource("RectangleShape2D_adc3a")
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_vsr8e")
+
+[connection signal="body_entered" from="chest_hitbox" to="." method="_on_chest_hitbox_body_entered"]

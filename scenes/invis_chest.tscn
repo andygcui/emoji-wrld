@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://ca4kwia5dunfb"]
+
+[ext_resource type="Script" path="res://invis_chest.gd" id="1_ow41c"]
+[ext_resource type="Texture2D" uid="uid://rrfar6n64vh1" path="res://art/sprites/objects/chest_01.png" id="2_k35o3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4o4v"]
+atlas = ExtResource("2_k35o3")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxlwq"]
+atlas = ExtResource("2_k35o3")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qx8mb"]
+atlas = ExtResource("2_k35o3")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tllv5"]
+atlas = ExtResource("2_k35o3")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4plko"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4o4v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxlwq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qx8mb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tllv5")
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p1pry"]
+size = Vector2(22, 11.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mhyy7"]
+size = Vector2(24.5625, 23.1875)
+
+[node name="invis_chest" type="StaticBody2D"]
+script = ExtResource("1_ow41c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.65, 1.65)
+sprite_frames = SubResource("SpriteFrames_4plko")
+animation = &"open"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(1, 4)
+shape = SubResource("RectangleShape2D_p1pry")
+
+[node name="chest_hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chest_hitbox"]
+position = Vector2(1, -1)
+shape = SubResource("RectangleShape2D_mhyy7")
+
+[connection signal="body_entered" from="chest_hitbox" to="." method="_on_chest_hitbox_body_entered"]

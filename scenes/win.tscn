@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://gc6pag1rahyl"]
+
+[ext_resource type="Script" path="res://game_over.gd" id="1_i1n0o"]
+[ext_resource type="Script" path="res://Button.gd" id="2_fhqt8"]
+
+[node name="win" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 416.0
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_i1n0o")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 4664.0
+offset_bottom = 2608.0
+scale = Vector2(0.5, 0.5)
+color = Color(1, 1, 1, 0.380392)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 792.0
+offset_top = 454.0
+offset_right = 2324.0
+offset_bottom = 1642.0
+scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/font_size = 300
+text = "You Win!"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 946.0
+offset_top = 762.0
+offset_right = 1408.0
+offset_bottom = 860.0
+theme_override_font_sizes/font_size = 60
+text = "Play again?"
+icon_alignment = 1
+script = ExtResource("2_fhqt8")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed" flags=18]
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed" flags=18]
